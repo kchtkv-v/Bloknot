@@ -1,0 +1,53 @@
+﻿<Window x:Class="Bloknot2._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bloknot2._0"
+        mc:Ignorable="d"
+        Title="Блокнот" Height="361" Width="562" MaxWidth="562" MaxHeight="361" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="311*"/>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top" Height="18">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать" Click="Create_Click"></MenuItem>
+                <MenuItem Header="Новое окно" Click="newWindow_Click"></MenuItem>
+                <MenuItem Header="Открыть..." Click="Open_Click" ></MenuItem>
+                <MenuItem Header="Сохранить" Click="Save_Click"></MenuItem>
+                <MenuItem Header="Сохранить как..." Click="SaveAs_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Выход" Click="Exit_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Правка">
+                <MenuItem Header="Отменить" Click="Cancel_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Вырезать" Click="Cut_Click"></MenuItem>
+                <MenuItem Header="Копировать" Click="Copy_Click"></MenuItem>
+                <MenuItem Header="Вставить" Click="Paste_Click"></MenuItem>
+                <MenuItem Header="Удалить" Click="Delete_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Выделить всё" Click="SelectAll_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Формат">
+                <MenuItem Header="Поменять строки..." Click="ChangeLines_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Вид">
+                <MenuItem Header="Строка состояния" Click="StatusBar_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе" Click="Info_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar x:Name="statusBar" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.Row="1" Height="22" Background="#FFECECEC">
+            <TextBlock x:Name="time" Text="0:0" ToolTip="Текущее время"></TextBlock>
+            <Separator></Separator>
+            <TextBlock x:Name="data" Text="0.0.0" ToolTip="Текущая дата"></TextBlock>
+        </StatusBar>
+        <RichTextBox x:Name="richTextBox" HorizontalAlignment="Stretch" Margin="0,0,0,22" Grid.Row="1" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" TextChanged="RichTextBox_TextChanged" SelectionBrush="#FF3D89C5" BorderBrush="{x:Null}" FontSize="16" />
+        
+    </Grid>
+</Window>
